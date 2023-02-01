@@ -1,0 +1,1729 @@
+
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:weather_app.ingest:weather data loaded..
+INFO:weather_app.ingest:Weather Data inserted in : 129.537035 secs 	 Total rows: 1729957
+INFO:weather_app.ingest:Harvest data loaded...
+INFO:weather_app.ingest:Harvest Data inserted in : 0.047252 secs 	 Total rows: 30
+INFO:weather_app.ingest:statistics data loaded...
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 00:03:39] "GET /api/weather/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 00:03:39] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 00:04:52] "GET /api/yield/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 00:05:16] "[32mGET /api/weather/stats HTTP/1.1[0m" 308 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 00:05:16] "GET /api/weather/stats/ HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 00:55:19] "GET /api/weather/stats/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 00:55:19] "GET /api/weather/stats/ HTTP/1.1" 200 -
+ERROR:WxYld_project.app:Exception on /api/weather/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: weather_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 95, in weather_main
+    return jsonify([r.serialize for r in result.paginate(page=page, per_page=100)])
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: weather_data
+[SQL: SELECT weather_data.id AS weather_data_id, weather_data.station AS weather_data_station, weather_data.date AS weather_data_date, weather_data.maximum_temperature AS weather_data_maximum_temperature, weather_data.minimum_temperature AS weather_data_minimum_temperature, weather_data.precipitation AS weather_data_precipitation 
+FROM weather_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 00:55:27] "[35m[1mGET /api/weather/ HTTP/1.1[0m" 500 -
+ERROR:WxYld_project.app:Exception on /api/weather/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: weather_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 95, in weather_main
+    return jsonify([r.serialize for r in result.paginate(page=page, per_page=100)])
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: weather_data
+[SQL: SELECT weather_data.id AS weather_data_id, weather_data.station AS weather_data_station, weather_data.date AS weather_data_date, weather_data.maximum_temperature AS weather_data_maximum_temperature, weather_data.minimum_temperature AS weather_data_minimum_temperature, weather_data.precipitation AS weather_data_precipitation 
+FROM weather_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 00:55:52] "[35m[1mGET /api/weather/ HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 00:56:55] "[32mGET /api/yield HTTP/1.1[0m" 308 -
+ERROR:WxYld_project.app:Exception on /api/yield/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: yield_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 102, in yield_main
+    [r.serialize for r in YieldData.query.paginate(page=page, per_page=100)]
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: yield_data
+[SQL: SELECT yield_data.id AS yield_data_id, yield_data.year AS yield_data_year, yield_data.harvested_val AS yield_data_harvested_val 
+FROM yield_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 00:56:55] "[35m[1mGET /api/yield/ HTTP/1.1[0m" 500 -
+ERROR:WxYld_project.app:Exception on /api/yield/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: yield_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 102, in yield_main
+    [r.serialize for r in YieldData.query.paginate(page=page, per_page=100)]
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: yield_data
+[SQL: SELECT yield_data.id AS yield_data_id, yield_data.year AS yield_data_year, yield_data.harvested_val AS yield_data_harvested_val 
+FROM yield_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:07:47] "[35m[1mGET /api/yield/ HTTP/1.1[0m" 500 -
+ERROR:WxYld_project.app:Exception on /api/yield/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: yield_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 102, in yield_main
+    [r.serialize for r in YieldData.query.paginate(page=page, per_page=100)]
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: yield_data
+[SQL: SELECT yield_data.id AS yield_data_id, yield_data.year AS yield_data_year, yield_data.harvested_val AS yield_data_harvested_val 
+FROM yield_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:07:48] "[35m[1mGET /api/yield/ HTTP/1.1[0m" 500 -
+ERROR:WxYld_project.app:Exception on /api/yield/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: yield_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 102, in yield_main
+    [r.serialize for r in YieldData.query.paginate(page=page, per_page=100)]
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: yield_data
+[SQL: SELECT yield_data.id AS yield_data_id, yield_data.year AS yield_data_year, yield_data.harvested_val AS yield_data_harvested_val 
+FROM yield_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:07:48] "[35m[1mGET /api/yield/ HTTP/1.1[0m" 500 -
+ERROR:WxYld_project.app:Exception on /api/weather/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: weather_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 95, in weather_main
+    return jsonify([r.serialize for r in result.paginate(page=page, per_page=100)])
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: weather_data
+[SQL: SELECT weather_data.id AS weather_data_id, weather_data.station AS weather_data_station, weather_data.date AS weather_data_date, weather_data.maximum_temperature AS weather_data_maximum_temperature, weather_data.minimum_temperature AS weather_data_minimum_temperature, weather_data.precipitation AS weather_data_precipitation 
+FROM weather_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:07:53] "[35m[1mGET /api/weather/ HTTP/1.1[0m" 500 -
+ERROR:WxYld_project.app:Exception on /api/weather/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: weather_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 95, in weather_main
+    return jsonify([r.serialize for r in result.paginate(page=page, per_page=100)])
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: weather_data
+[SQL: SELECT weather_data.id AS weather_data_id, weather_data.station AS weather_data_station, weather_data.date AS weather_data_date, weather_data.maximum_temperature AS weather_data_maximum_temperature, weather_data.minimum_temperature AS weather_data_minimum_temperature, weather_data.precipitation AS weather_data_precipitation 
+FROM weather_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:07:54] "[35m[1mGET /api/weather/ HTTP/1.1[0m" 500 -
+ERROR:WxYld_project.app:Exception on /api/weather/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: weather_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 95, in weather_main
+    return jsonify([r.serialize for r in result.paginate(page=page, per_page=100)])
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: weather_data
+[SQL: SELECT weather_data.id AS weather_data_id, weather_data.station AS weather_data_station, weather_data.date AS weather_data_date, weather_data.maximum_temperature AS weather_data_maximum_temperature, weather_data.minimum_temperature AS weather_data_minimum_temperature, weather_data.precipitation AS weather_data_precipitation 
+FROM weather_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:07:56] "[35m[1mGET /api/weather/ HTTP/1.1[0m" 500 -
+ERROR:WxYld_project.app:Exception on /api/weather/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: weather_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 95, in weather_main
+    return jsonify([r.serialize for r in result.paginate(page=page, per_page=100)])
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: weather_data
+[SQL: SELECT weather_data.id AS weather_data_id, weather_data.station AS weather_data_station, weather_data.date AS weather_data_date, weather_data.maximum_temperature AS weather_data_maximum_temperature, weather_data.minimum_temperature AS weather_data_minimum_temperature, weather_data.precipitation AS weather_data_precipitation 
+FROM weather_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:10:18] "[35m[1mGET /api/weather/ HTTP/1.1[0m" 500 -
+ERROR:WxYld_project.app:Exception on /api/weather/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: weather_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 95, in weather_main
+    return jsonify([r.serialize for r in result.paginate(page=page, per_page=100)])
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: weather_data
+[SQL: SELECT weather_data.id AS weather_data_id, weather_data.station AS weather_data_station, weather_data.date AS weather_data_date, weather_data.maximum_temperature AS weather_data_maximum_temperature, weather_data.minimum_temperature AS weather_data_minimum_temperature, weather_data.precipitation AS weather_data_precipitation 
+FROM weather_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:10:19] "[35m[1mGET /api/weather/ HTTP/1.1[0m" 500 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:WxYld_project.app:Exception on /api/weather/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: weather_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 95, in weather_main
+    return jsonify([r.serialize for r in result.paginate(page=page, per_page=100)])
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: weather_data
+[SQL: SELECT weather_data.id AS weather_data_id, weather_data.station AS weather_data_station, weather_data.date AS weather_data_date, weather_data.maximum_temperature AS weather_data_maximum_temperature, weather_data.minimum_temperature AS weather_data_minimum_temperature, weather_data.precipitation AS weather_data_precipitation 
+FROM weather_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:10:27] "[35m[1mGET /api/weather/ HTTP/1.1[0m" 500 -
+ERROR:WxYld_project.app:Exception on /api/weather/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: weather_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 95, in weather_main
+    return jsonify([r.serialize for r in result.paginate(page=page, per_page=100)])
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: weather_data
+[SQL: SELECT weather_data.id AS weather_data_id, weather_data.station AS weather_data_station, weather_data.date AS weather_data_date, weather_data.maximum_temperature AS weather_data_maximum_temperature, weather_data.minimum_temperature AS weather_data_minimum_temperature, weather_data.precipitation AS weather_data_precipitation 
+FROM weather_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:10:27] "[35m[1mGET /api/weather/ HTTP/1.1[0m" 500 -
+ERROR:WxYld_project.app:Exception on /api/weather/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: weather_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 95, in weather_main
+    return jsonify([r.serialize for r in result.paginate(page=page, per_page=100)])
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: weather_data
+[SQL: SELECT weather_data.id AS weather_data_id, weather_data.station AS weather_data_station, weather_data.date AS weather_data_date, weather_data.maximum_temperature AS weather_data_maximum_temperature, weather_data.minimum_temperature AS weather_data_minimum_temperature, weather_data.precipitation AS weather_data_precipitation 
+FROM weather_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:10:28] "[35m[1mGET /api/weather/ HTTP/1.1[0m" 500 -
+ERROR:WxYld_project.app:Exception on /api/weather/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: weather_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 95, in weather_main
+    return jsonify([r.serialize for r in result.paginate(page=page, per_page=100)])
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: weather_data
+[SQL: SELECT weather_data.id AS weather_data_id, weather_data.station AS weather_data_station, weather_data.date AS weather_data_date, weather_data.maximum_temperature AS weather_data_maximum_temperature, weather_data.minimum_temperature AS weather_data_minimum_temperature, weather_data.precipitation AS weather_data_precipitation 
+FROM weather_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:10:28] "[35m[1mGET /api/weather/ HTTP/1.1[0m" 500 -
+ERROR:WxYld_project.app:Exception on /api/weather/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: weather_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 95, in weather_main
+    return jsonify([r.serialize for r in result.paginate(page=page, per_page=100)])
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: weather_data
+[SQL: SELECT weather_data.id AS weather_data_id, weather_data.station AS weather_data_station, weather_data.date AS weather_data_date, weather_data.maximum_temperature AS weather_data_maximum_temperature, weather_data.minimum_temperature AS weather_data_minimum_temperature, weather_data.precipitation AS weather_data_precipitation 
+FROM weather_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:10:28] "[35m[1mGET /api/weather/ HTTP/1.1[0m" 500 -
+ERROR:WxYld_project.app:Exception on /api/weather/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: weather_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 95, in weather_main
+    return jsonify([r.serialize for r in result.paginate(page=page, per_page=100)])
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: weather_data
+[SQL: SELECT weather_data.id AS weather_data_id, weather_data.station AS weather_data_station, weather_data.date AS weather_data_date, weather_data.maximum_temperature AS weather_data_maximum_temperature, weather_data.minimum_temperature AS weather_data_minimum_temperature, weather_data.precipitation AS weather_data_precipitation 
+FROM weather_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:10:28] "[35m[1mGET /api/weather/ HTTP/1.1[0m" 500 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:WxYld_project.app:Exception on /api/weather/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: weather_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 95, in weather_main
+    return jsonify([r.serialize for r in result.paginate(page=page, per_page=100)])
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: weather_data
+[SQL: SELECT weather_data.id AS weather_data_id, weather_data.station AS weather_data_station, weather_data.date AS weather_data_date, weather_data.maximum_temperature AS weather_data_maximum_temperature, weather_data.minimum_temperature AS weather_data_minimum_temperature, weather_data.precipitation AS weather_data_precipitation 
+FROM weather_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:12:19] "[35m[1mGET /api/weather/ HTTP/1.1[0m" 500 -
+ERROR:WxYld_project.app:Exception on /api/weather/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: weather_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 95, in weather_main
+    return jsonify([r.serialize for r in result.paginate(page=page, per_page=100)])
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: weather_data
+[SQL: SELECT weather_data.id AS weather_data_id, weather_data.station AS weather_data_station, weather_data.date AS weather_data_date, weather_data.maximum_temperature AS weather_data_maximum_temperature, weather_data.minimum_temperature AS weather_data_minimum_temperature, weather_data.precipitation AS weather_data_precipitation 
+FROM weather_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:12:20] "[35m[1mGET /api/weather/ HTTP/1.1[0m" 500 -
+ERROR:WxYld_project.app:Exception on /api/weather/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: weather_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 95, in weather_main
+    return jsonify([r.serialize for r in result.paginate(page=page, per_page=100)])
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: weather_data
+[SQL: SELECT weather_data.id AS weather_data_id, weather_data.station AS weather_data_station, weather_data.date AS weather_data_date, weather_data.maximum_temperature AS weather_data_maximum_temperature, weather_data.minimum_temperature AS weather_data_minimum_temperature, weather_data.precipitation AS weather_data_precipitation 
+FROM weather_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:12:20] "[35m[1mGET /api/weather/ HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:12:23] "GET /api/weather/stats/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:12:24] "GET /api/weather/stats/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:12:24] "GET /api/weather/stats/ HTTP/1.1" 200 -
+ERROR:WxYld_project.app:Exception on /api/yield/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: yield_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 102, in yield_main
+    [r.serialize for r in YieldData.query.paginate(page=page, per_page=100)]
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: yield_data
+[SQL: SELECT yield_data.id AS yield_data_id, yield_data.year AS yield_data_year, yield_data.harvested_val AS yield_data_harvested_val 
+FROM yield_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:12:27] "[35m[1mGET /api/yield/ HTTP/1.1[0m" 500 -
+ERROR:WxYld_project.app:Exception on /api/yield/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: yield_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 102, in yield_main
+    [r.serialize for r in YieldData.query.paginate(page=page, per_page=100)]
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: yield_data
+[SQL: SELECT yield_data.id AS yield_data_id, yield_data.year AS yield_data_year, yield_data.harvested_val AS yield_data_harvested_val 
+FROM yield_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:12:27] "[35m[1mGET /api/yield/ HTTP/1.1[0m" 500 -
+ERROR:WxYld_project.app:Exception on /api/yield/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: yield_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 102, in yield_main
+    [r.serialize for r in YieldData.query.paginate(page=page, per_page=100)]
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: yield_data
+[SQL: SELECT yield_data.id AS yield_data_id, yield_data.year AS yield_data_year, yield_data.harvested_val AS yield_data_harvested_val 
+FROM yield_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:12:27] "[35m[1mGET /api/yield/ HTTP/1.1[0m" 500 -
+ERROR:WxYld_project.app:Exception on /api/yield/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: yield_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 102, in yield_main
+    [r.serialize for r in YieldData.query.paginate(page=page, per_page=100)]
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: yield_data
+[SQL: SELECT yield_data.id AS yield_data_id, yield_data.year AS yield_data_year, yield_data.harvested_val AS yield_data_harvested_val 
+FROM yield_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:12:28] "[35m[1mGET /api/yield/ HTTP/1.1[0m" 500 -
+ERROR:WxYld_project.app:Exception on /api/yield/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: yield_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 102, in yield_main
+    [r.serialize for r in YieldData.query.paginate(page=page, per_page=100)]
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: yield_data
+[SQL: SELECT yield_data.id AS yield_data_id, yield_data.year AS yield_data_year, yield_data.harvested_val AS yield_data_harvested_val 
+FROM yield_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:12:28] "[35m[1mGET /api/yield/ HTTP/1.1[0m" 500 -
+ERROR:WxYld_project.app:Exception on /api/yield/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: yield_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 102, in yield_main
+    [r.serialize for r in YieldData.query.paginate(page=page, per_page=100)]
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: yield_data
+[SQL: SELECT yield_data.id AS yield_data_id, yield_data.year AS yield_data_year, yield_data.harvested_val AS yield_data_harvested_val 
+FROM yield_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:12:28] "[35m[1mGET /api/yield/ HTTP/1.1[0m" 500 -
+ERROR:WxYld_project.app:Exception on /api/yield/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: yield_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 102, in yield_main
+    [r.serialize for r in YieldData.query.paginate(page=page, per_page=100)]
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: yield_data
+[SQL: SELECT yield_data.id AS yield_data_id, yield_data.year AS yield_data_year, yield_data.harvested_val AS yield_data_harvested_val 
+FROM yield_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:12:28] "[35m[1mGET /api/yield/ HTTP/1.1[0m" 500 -
+ERROR:WxYld_project.app:Exception on /api/yield/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: yield_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 102, in yield_main
+    [r.serialize for r in YieldData.query.paginate(page=page, per_page=100)]
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: yield_data
+[SQL: SELECT yield_data.id AS yield_data_id, yield_data.year AS yield_data_year, yield_data.harvested_val AS yield_data_harvested_val 
+FROM yield_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:12:28] "[35m[1mGET /api/yield/ HTTP/1.1[0m" 500 -
+ERROR:WxYld_project.app:Exception on /api/yield/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: yield_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 102, in yield_main
+    [r.serialize for r in YieldData.query.paginate(page=page, per_page=100)]
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: yield_data
+[SQL: SELECT yield_data.id AS yield_data_id, yield_data.year AS yield_data_year, yield_data.harvested_val AS yield_data_harvested_val 
+FROM yield_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:12:28] "[35m[1mGET /api/yield/ HTTP/1.1[0m" 500 -
+ERROR:WxYld_project.app:Exception on /api/yield/ [GET]
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: yield_data
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python_prob_solve\flask_weather_app\WxYld_project\app.py", line 102, in yield_main
+    [r.serialize for r in YieldData.query.paginate(page=page, per_page=100)]
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\query.py", line 99, in paginate
+    return QueryPagination(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 69, in __init__
+    items = self._query_items()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\flask_sqlalchemy\pagination.py", line 354, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "D:\python_prob_solve\flask_weather_app\env\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: yield_data
+[SQL: SELECT yield_data.id AS yield_data_id, yield_data.year AS yield_data_year, yield_data.harvested_val AS yield_data_harvested_val 
+FROM yield_data
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:12:28] "[35m[1mGET /api/yield/ HTTP/1.1[0m" 500 -
+INFO:WxYld_project.ingest:weather data loaded..
+INFO:WxYld_project.ingest:Weather Data inserted in : 1.344352 secs 	 Total rows: 52071
+INFO:WxYld_project.ingest:Harvest data loaded...
+INFO:WxYld_project.ingest:Harvest Data inserted in : 0.015656 secs 	 Total rows: 30
+INFO:WxYld_project.ingest:statistics data loaded...
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:14:08] "GET /api/yield/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2023 01:14:17] "GET /api/weather/ HTTP/1.1" 200 -
